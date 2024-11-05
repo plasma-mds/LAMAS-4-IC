@@ -1,0 +1,889 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Cation_IC_Schema",
+  "type": "object",
+  "properties": {
+    "dataCite": {
+      "title": "Data citation information",
+      "description": "Mandatory information for accurate and consistent identification of a resource for citation and retrieval purposes. According to DataCite V 4.4",
+      "properties": {
+        "identifier": {
+          "title": "Identifier",
+          "description": "The Identifier is a unique string that identifies a resource. For software, determine whether the identifier is for a specific version of a piece of software, (per the Force11 Software Citation Principles11), or for all versions. Allowed is the DOI (Digital Object Identifier) registered by a DataCite member.",
+          "type": "string"
+        },
+        "identifierType": {
+          "type": "string",
+          "title": "Identifier type",
+          "description": "The type of Identifier. ",
+          "enum": [
+            "DOI"
+          ]
+        },
+        "creator": {
+          "title": "Creator",
+          "description": "The main researchers involved in producing the data, or the authors of the publication, in priority order. To supply multiple creators, repeat this property.",
+          "properties": {
+            "givenName": {
+              "title": "Given name",
+              "description": "The personal or first name of the creator",
+              "type": "string"
+            },
+            "familyName": {
+              "title": "Family name",
+              "description": "The surname or last name of the creator",
+              "type": "string"
+            },
+            "nameIdentifier": {
+              "title": "Name identifier",
+              "description": "Uniquely identifies an individual or legal entity, according to various schemes.",
+              "type": "string"
+            },
+            "nameIdentifierScheme": {
+              "type": "string",
+              "title": "Name identifier scheme",
+              "description": "The name of the name\nidentifier scheme. For example ORCID, ISNI, ROR or GRID"
+            },
+            "affiliation": {
+              "title": "Affiliation",
+              "description": "The organizational or institutional affiliation of the creator.",
+              "type": "string"
+            },
+            "affiliationIdentifier": {
+              "title": "Affiliation identifier",
+              "description": "Uniquely identifies the organizational affiliation of the creator.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "title": {
+          "title": "Publication title",
+          "description": "A name or title by which a resource is known. May be the title of a dataset or the name of a piece of software",
+          "type": "string"
+        },
+        "titleType": {
+          "title": "Publication title type",
+          "description": "The type of Title (other than the Main Title)",
+          "type": "string",
+          "enum": [
+            "Main title",
+            "Alternative title",
+            "Subtitle",
+            "Translated title",
+            "Other"
+          ]
+        },
+        "publisher": {
+          "title": "Publisher",
+          "description": "The name of the entity that holds, archives, publishes prints, distributes, releases, issues, or produces the resource. This property will be used to formulate the citation, so consider the prominence of the role. For software, use Publisher for the code repository. If there is an entity other than a code repository, that \"holds, archives, publishes, prints, distributes, releases, issues, or produces\" the code, use the property Contributor/contributorType/\nhostingInstitution for the code repository.",
+          "type": "string"
+        },
+        "publicationYear": {
+          "title": "Publication year",
+          "description": "The year when the data was or will be made publicly available. In the case of resources such as software or dynamic data where there may be multiple releases in one year, include the Date/dateType/dateInformation property and sub-properties to provide more information about the publication or release date details.",
+          "type": "number",
+          "minimum": 0
+        },
+        "resourceType": {
+          "title": "Resource type",
+          "description": "Controlled list of possible types according to DataCity 4.4",
+          "type": "string",
+          "enum": [
+            "Audiovisual",
+            "Book",
+            "Book chapter",
+            "Collection",
+            "Computational notebook",
+            "Conference paper",
+            "Conference proceeding",
+            "Data paper",
+            "Dataset",
+            "Dissertation",
+            "Event",
+            "Image",
+            "Interactive Resource",
+            "Journal",
+            "Journal article",
+            "Model",
+            "Output management plan",
+            "Peer review",
+            "Physical object",
+            "Preprint",
+            "Report",
+            "Service Software",
+            "Sound",
+            "Standard",
+            "Text",
+            "Workflow",
+            "Other"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "identificationInformation": {
+      "title": "Identification information",
+      "description": "",
+      "required": [
+        "sequenceName",
+        "measurementDate",
+        "projectName",
+        "deviceBrand",
+        "deviceID"
+      ],
+      "properties": {
+        "sequenceName": {
+          "title": "Sequence name",
+          "description": "Name of the measured sequence.",
+          "type": "string"
+        },
+        "measurementDate": {
+          "title": "Date of measurement begin",
+          "description": "dd.mm.yyyy",
+          "$id": "http://purl.obolibrary.org/obo/AGRO_00010151",
+          "type": "string"
+        },
+        "projectName": {
+          "title": "Project name",
+          "description": "",
+          "$id": "http://purl.obolibrary.org/obo/NCIT_C165056",
+          "type": "string"
+        },
+        "deviceBrand": {
+          "title": "Device brand",
+          "description": "ID of the used Device",
+          "type": "string",
+          "enum": [
+            "ThermoFisher Scientific",
+            "Shimadzu",
+            "Agilent",
+            "Metrohm",
+            "membraPure",
+            "OSRAM"
+          ]
+        },
+        "deviceID": {
+          "title": "Device ID",
+          "description": "Which device was used",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "instrumentMethod": {
+      "title": "Instrument method",
+      "description": "Method that defines the device parameter.",
+      "required": [
+        "eluentGeneratorSettings",
+        "samplerSettings",
+        "uvVisDetector",
+        "methodName",
+        "pumpSettings",
+        "injectionVolume",
+        "runtime"
+      ],
+      "properties": {
+        "methodName": {
+          "title": "Instrument method name",
+          "description": "",
+          "type": "string"
+        },
+        "runtime": {
+          "title": "Runtime [min]",
+          "description": "Defines the length of each measurement. Ranges from 3 to 100000 minutes.",
+          "type": "number",
+          "minimum": 3,
+          "maximum": 100000
+        },
+        "injectionVolume": {
+          "title": "Injection volume [\\mu l]",
+          "description": "Amount of sample that will be injected per measurment. Ranges from 5 to 10 µl.",
+          "$id": "http://purl.allotrope.org/ontologies/result#AFR_0001267",
+          "type": "number",
+          "minimum": 5,
+          "maximum": 10
+        },
+        "pumpSettings": {
+          "title": "Pump settings",
+          "description": "",
+          "required": [
+            "pumpMode",
+            "eluentChannels",
+            "upperPressureLimit",
+            "lowerPressureLimit",
+            "eluentFlowRate"
+          ],
+          "properties": {
+            "pumpMode": {
+              "title": "Pump mode",
+              "description": "isocratic: eluent generated from one solvent,\n\ngradient: eluent generated from a mixture of up to 4 solvents",
+              "type": "string",
+              "enum": [
+                "isocratic",
+                "gradient"
+              ]
+            },
+            "eluentFlowRate": {
+              "title": "Eluent flow rate [ml/min]",
+              "description": "",
+              "$id": "http://purl.allotrope.org/ontologies/result#AFR_0001270",
+              "type": "number",
+              "minimum": 0,
+              "maximum": 3
+            },
+            "lowerPressureLimit": {
+              "title": "Lower pressure limit [psi]",
+              "description": "Lower boundary for the system pressure, ranges from 200 to 4999 psi.",
+              "$id": "http://biomodels.net/SBO/SBO_0000279",
+              "type": "number",
+              "minimum": 200,
+              "maximum": 4999
+            },
+            "upperPressureLimit": {
+              "title": "Upper pressure limit [psi]",
+              "description": "Upper boundary for the system pressure, ranges from 201 to 5000 psi. Must be higher than the lower pressure limit!",
+              "type": "number",
+              "minimum": 201,
+              "maximum": 5000
+            },
+            "pumpGradientPlan": {
+              "title": "Pump gradient plan",
+              "description": "",
+              "properties": {
+                "pumpGradientTable": {
+                  "title": "Pump gradient table",
+                  "description": "starttime1 endtime1 flowrate1 %eluentchannelB1 %eluentchannelC1 %eluentchannelD1, starttime2 endtime2 flowrate2 %eluentchannelB2 %eluentchannelC2 %eluentchannelD2 ... ",
+                  "type": "string",
+                  "contentEncoding": "base64"
+                }
+              },
+              "type": "object"
+            },
+            "eluentChannels": {
+              "title": "Eluent channels",
+              "description": "If pump mode isocratic: A = 100%, B,C,D = 0%. If pump mode gradient: A+B+C+D = 100% in total.",
+              "required": [
+                "channelD",
+                "channelC",
+                "channelB",
+                "channelA"
+              ],
+              "properties": {
+                "channelA": {
+                  "title": "Channel A [%]",
+                  "description": "",
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100
+                },
+                "channelB": {
+                  "title": "Channel B [%]",
+                  "description": "",
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100
+                },
+                "channelC": {
+                  "title": "Channel C [%]",
+                  "description": "",
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100
+                },
+                "channelD": {
+                  "title": "Channel D [%]",
+                  "description": "",
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "eluentGeneratorSettings": {
+          "type": "object",
+          "title": "Eluent generator settings",
+          "description": "",
+          "properties": {
+            "eluentCartridge": {
+              "title": "Eluent cartridge",
+              "description": "",
+              "type": "string",
+              "enum": [
+                "MSA 500",
+                ""
+              ]
+            },
+            "eluentMode": {
+              "title": "Eluent mode",
+              "description": "isocratic: one fix concentration for whole measurement,\ngradient: concentration shifts over defined time frame(s)",
+              "type": "string",
+              "enum": [
+                "isocratic",
+                "gradient"
+              ]
+            },
+            "eluentConcentration": {
+              "title": "Eluent concentration [mM]",
+              "description": "",
+              "$id": "http://edamontology.org/data_2140",
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "concentrationGradientPlan": {
+              "title": "Concentration gradient plan",
+              "description": "",
+              "properties": {
+                "concentrationGradientTable": {
+                  "title": "Concentration gradient table",
+                  "description": "Format:\nstarttime1 endtime1 concentration1;\nstarttime2 endtime2 concentration2; ",
+                  "type": "string",
+                  "contentEncoding": "base64"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "required": [
+            "eluentMode",
+            "eluentConcentration",
+            "eluentCartridge"
+          ]
+        },
+        "samplerSettings": {
+          "type": "object",
+          "title": "Sampler settings",
+          "description": "",
+          "properties": {
+            "samplerTemperature": {
+              "title": "Sampler temperature [°C]",
+              "description": "Temperature for sample storage in the sampler.",
+              "$id": "http://nmrML.org/nmrCV#NMR:1400024",
+              "type": "number",
+              "minimum": 4,
+              "maximum": 60
+            },
+            "temperatureDeviation": {
+              "title": "Temperature deviation [°C]",
+              "description": "Accepted deviation from set sampler temperature.",
+              "type": "number",
+              "minimum": 0,
+              "maximum": 10
+            }
+          },
+          "required": [
+            "temperatureDeviation",
+            "samplerTemperature"
+          ]
+        },
+        "uvVisDetector": {
+          "title": "UV/VIS detector",
+          "description": "",
+          "properties": {
+            "wavelength1": {
+              "title": "Wavelength channel 1 [nm]",
+              "description": "Ranges from 190 to 900 nm.",
+              "type": "number",
+              "$id": "http://purl.obolibrary.org/obo/NCIT_C48158",
+              "minimum": 190,
+              "maximum": 900
+            },
+            "wavelength2": {
+              "title": "Wavelength channel 2 [nm]",
+              "description": "Ranges from 190 to 900 nm.",
+              "type": "number",
+              "minimum": 190,
+              "maximum": 900
+            },
+            "wavelength3": {
+              "title": "Wavelength channel 3 [nm]",
+              "description": "Ranges from 190 to 900 nm.",
+              "type": "number",
+              "minimum": 190,
+              "maximum": 900
+            },
+            "wavelength4": {
+              "title": "Wavelength channel 4 [nm]",
+              "description": "Ranges from 190 to 900 nm.",
+              "type": "number",
+              "minimum": 190,
+              "maximum": 900
+            },
+            "uvVisDataCollectionRate": {
+              "title": "UV/VIS data collection rate [Hz]",
+              "description": "Ranges from 0.2 t o100 Hz.",
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "timeConstant": {
+              "title": "Time constant [s]",
+              "description": "Ranges from 0 to 4.55s.",
+              "type": "number",
+              "minimum": 0,
+              "maximum": 5
+            }
+          },
+          "type": "object",
+          "$id": "http://purl.obolibrary.org/obo/OBI_0000505"
+        },
+        "cdDetectorSettings": {
+          "title": "Conductivity detector settings",
+          "description": "",
+          "properties": {
+            "cd1Channel": {
+              "title": "CD1 channel",
+              "description": "",
+              "type": "boolean",
+              "default": false
+            },
+            "cd1TotalChannel": {
+              "title": "CD1 total channel",
+              "description": "",
+              "type": "boolean",
+              "default": true
+            },
+            "cdDataCollectionRate": {
+              "title": "CD data collection rate [Hz]",
+              "description": "",
+              "type": "string",
+              "enum": [
+                "1.0 Hz",
+                "2.0 Hz",
+                "5.0 Hz",
+                "10.0 Hz",
+                "20.0 Hz",
+                "50.0 Hz",
+                "100.0 Hz"
+              ]
+            },
+            "cdAutozero": {
+              "type": "boolean",
+              "title": "CD autozero",
+              "description": "",
+              "default": true
+            }
+          },
+          "type": "object",
+          "$id": "http://purl.obolibrary.org/obo/OBI_0000565"
+        },
+        "suppressorSettings": {
+          "title": "Suppressor settings",
+          "description": "",
+          "required": [
+            "suppressorCurrent",
+            "suppressorType",
+            "sulfuricAcidSuppression",
+            "otherSuppression",
+            "methanesulfonicAcidSuppression"
+          ],
+          "properties": {
+            "suppressorType": {
+              "title": "Suppressor type",
+              "description": "",
+              "type": "string",
+              "enum": [
+                "CRDS 2mm",
+                "CRDS 4mm",
+                "CERS 2mm",
+                "CERS 4mm"
+              ]
+            },
+            "sulfuricAcidSuppression": {
+              "title": "Sulfuric acid suppression [mM]",
+              "description": "",
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "methanesulfonicAcidSuppression": {
+              "title": "Methanesulfonic acid suppression [mM]",
+              "description": "",
+              "type": "number",
+              "maximum": 200
+            },
+            "otherSuppression": {
+              "title": "Other suppression [mM]",
+              "description": "",
+              "type": "number",
+              "minimum": 0,
+              "maximum": 200
+            },
+            "suppressorCurrent": {
+              "title": "Suppressor current [mA]",
+              "description": "",
+              "$id": "http://www.ebi.ac.uk/efo/EFO_0000388",
+              "type": "number",
+              "minimum": 0,
+              "maximum": 150
+            }
+          },
+          "$id": "http://purl.obolibrary.org/obo/NCIT_C50198",
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "processingMethod": {
+      "title": "Processing method",
+      "description": "",
+      "properties": {
+        "ProcessingStandardDetectionWindows": {
+          "title": "Standard detection windows",
+          "description": "",
+          "properties": {
+            "voidRetentiontime": {
+              "title": "Void retentiontime [min]",
+              "description": "",
+              "type": "number",
+              "minimum": 0
+            },
+            "voidWindow": {
+              "title": "Void window [min]",
+              "description": "Defines the allowed difference to the defined retention time.",
+              "type": "number",
+              "minimum": 0
+            },
+            "sodiumRetentiontime": {
+              "title": "Sodium retentiontime [min]",
+              "description": "",
+              "$id": "http://purl.allotrope.org/ontologies/result#AFR_0001089",
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100000
+            },
+            "sodiumWindow": {
+              "title": "Sodium window [min]",
+              "description": "Defines the allowed difference to the defined retention time.",
+              "type": "number"
+            },
+            "potassiumRetentiontime": {
+              "title": "Potassium retentiontime [min]",
+              "description": "",
+              "type": "number",
+              "minimum": 0
+            },
+            "potassiumWindow": {
+              "title": "Potassium window [min]",
+              "description": "Defines the allowed difference to the defined retention time.",
+              "type": "number",
+              "minimum": 0
+            },
+            "magnesiumRetentiontime": {
+              "title": "Magnesium retentiontime [min]",
+              "description": "",
+              "type": "number",
+              "minimum": 0
+            },
+            "magnesiumWindow": {
+              "title": "Magnesium window [min]",
+              "description": "Defines the allowed difference to the defined retention time.",
+              "type": "number",
+              "minimum": 0
+            },
+            "calciumRetentiontime": {
+              "title": "Calcium retentiontime [min]",
+              "description": "",
+              "type": "number",
+              "minimum": 0
+            },
+            "calciumWindow": {
+              "title": "Calcium window [min]",
+              "description": "Defines the allowed difference to the defined retention time.",
+              "type": "number",
+              "minimum": 0
+            },
+            "ammoniumRetentiontime": {
+              "title": "Ammonium retentiontime [min]",
+              "description": "",
+              "type": "number",
+              "minimum": 0
+            },
+            "ammoniumWindow": {
+              "title": "Ammonium window [min]",
+              "description": "Defines the allowed difference to the defined retention time.",
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "columnProperties": {
+      "title": "Column properties",
+      "description": "",
+      "required": [
+        "columnLot",
+        "separationColumnLength",
+        "separationColumnDiameter",
+        "columnTemperature",
+        "separationColumnName"
+      ],
+      "properties": {
+        "guardColumn": {
+          "title": "Guard column",
+          "description": "",
+          "$id": "http://purl.allotrope.org/ontologies/equipment#AFE_0000430",
+          "type": "boolean"
+        },
+        "guardColumnName": {
+          "title": "Guard column name",
+          "description": "",
+          "type": "string",
+          "enum": [
+            "CG 16"
+          ]
+        },
+        "guardColumnLot": {
+          "title": "Guard column lot",
+          "description": "Lot No. of the used guard column to prevent mix ups, if identical columns exist.",
+          "type": "number"
+        },
+        "guardColumnPackingMaterial": {
+          "title": "Guard column packing material",
+          "description": "Material used to pack the guard column.",
+          "type": "string",
+          "enum": [
+            "Ethylvinylbenzol/Divinylbenzol",
+            "none"
+          ]
+        },
+        "guardColumnStationaryPhase": {
+          "title": "Guard column stationary phase",
+          "description": "",
+          "type": "string",
+          "enum": [
+            "Super Macroporous Resin",
+            ""
+          ]
+        },
+        "guardColumnLength": {
+          "title": "Guard column length",
+          "description": "",
+          "type": "string",
+          "enum": [
+            "50 mm"
+          ]
+        },
+        "guardDiameter": {
+          "title": "Guard column diameter [mm]",
+          "description": "",
+          "type": "number",
+          "enum": [
+            2,
+            4
+          ]
+        },
+        "guardParticleSize": {
+          "title": "Guard column particle size [\\mu m]",
+          "description": "",
+          "type": "number",
+          "minimum": 0
+        },
+        "separationColumnName": {
+          "title": "Separation column name",
+          "description": "",
+          "type": "string",
+          "enum": [
+            "CS 16"
+          ]
+        },
+        "columnLot": {
+          "title": "Separation column lot",
+          "description": "Lot No. of the used separation column, to prevent mix-ups, if identical columns exists.",
+          "$id": "http://purl.obolibrary.org/obo/NCIT_C41396",
+          "type": "number"
+        },
+        "separationColumnPackingMaterial": {
+          "title": "Separation column packing material",
+          "description": "",
+          "type": "string",
+          "enum": [
+            "Ethylvinylbenzol/Divinylbenzol",
+            "none"
+          ]
+        },
+        "separationColumnStationaryPhase": {
+          "title": "Separation column stationary phase",
+          "description": "",
+          "type": "string",
+          "enum": [
+            "Super Macroporous Resin",
+            ""
+          ]
+        },
+        "separationColumnLength": {
+          "title": "Separation column length [mm]",
+          "description": "",
+          "$id": "http://purl.allotrope.org/ontologies/quality#AFQ_0000014",
+          "type": "number",
+          "enum": [
+            250
+          ]
+        },
+        "separationColumnDiameter": {
+          "title": "Separation column diameter [mm]",
+          "description": "",
+          "$id": "http://purl.allotrope.org/ontologies/quality#AFQ_0000016",
+          "type": "number",
+          "default": 2,
+          "enum": [
+            2,
+            0.4
+          ]
+        },
+        "separationColumnParticleSize": {
+          "title": "Separation column particle size [\\mu m]",
+          "description": "",
+          "type": "number"
+        },
+        "columnTemperature": {
+          "title": "Column temperature [°C]",
+          "description": "",
+          "type": "number"
+        }
+      },
+      "$id": "http://purl.allotrope.org/ontologies/equipment#AFE_0000217",
+      "type": "object"
+    },
+    "sampleProperties": {
+      "title": "Sample properties",
+      "description": "",
+      "properties": {
+        "samplePh": {
+          "title": "Sample pH",
+          "description": "",
+          "$id": "http://purl.obolibrary.org/obo/NCIT_C45997",
+          "type": "string",
+          "contentEncoding": "base64"
+        },
+        "sampleConductivity": {
+          "title": "Sample conductivity [\\mu S]",
+          "description": "",
+          "$id": "http://purl.obolibrary.org/obo/NCIT_C134263",
+          "type": "string",
+          "contentEncoding": "base64"
+        },
+        "sampleRedoxPotential": {
+          "title": "Sample redox potential [V]",
+          "description": "",
+          "$id": "http://purl.obolibrary.org/obo/NCIT_C45998",
+          "type": "string",
+          "contentEncoding": "base64"
+        },
+        "dilutionFactors": {
+          "title": "Dilution factors",
+          "description": "",
+          "type": "string",
+          "contentEncoding": "base64"
+        },
+        "sampleStorageTime": {
+          "title": "Sample storage time [h]",
+          "description": "Describes the time of storage of a sample before measurement.",
+          "type": "string",
+          "contentEncoding": "base64"
+        },
+        "sample_storage_temperature": {
+          "title": "Sample storage temperature [°C]",
+          "description": "",
+          "type": "number"
+        },
+        "sampleMatrix": {
+          "title": "Sample matrix",
+          "description": "",
+          "type": "string",
+          "enum": [
+            "PTW",
+            "treated lettuce",
+            "aquaculture water",
+            "model aquaculture water",
+            "wash water",
+            "waste water",
+            "lettuce extract"
+          ]
+        },
+        "coarseFilterPoreSize": {
+          "title": "Coarse filter pore size [mm]",
+          "description": "",
+          "type": "number"
+        },
+        "coarseFilterMaterial": {
+          "title": "Coarse filter material",
+          "description": "",
+          "type": "string",
+          "enum": [
+            "Cellulose",
+            "none"
+          ]
+        },
+        "fineFilterPoreSize": {
+          "title": "Fine filter pore size [\\mu m]",
+          "description": "",
+          "type": "number"
+        },
+        "fineFilterMaterial": {
+          "title": "Fine filter material",
+          "description": "",
+          "type": "string",
+          "enum": [
+            "Cellulosenitrat",
+            "Nylon",
+            "PES",
+            "none"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "qualityAssurance": {
+      "title": "Quality assurance",
+      "description": "",
+      "required": [
+        "system_pressure_start",
+        "backgroundConductivityAtSequenceStart"
+      ],
+      "properties": {
+        "sequenceReport": {
+          "title": "Sequence report",
+          "description": "Data report exported from the device, including chromatograms, quality assurance and audit trails.",
+          "type": "string",
+          "contentEncoding": "base64"
+        },
+        "backgroundConductivityAtSequenceStart": {
+          "title": "Background conductivity at sequence start [\\mu S]",
+          "description": "For a stable measurement background should be less than 1 µS.",
+          "type": "number"
+        },
+        "system_pressure_start": {
+          "type": "number",
+          "title": "System pressure at sequence start [psi]",
+          "description": "Has to be at least higher than 2000 psi."
+        },
+        "linearVelocity": {
+          "title": "Linear velocity of mobile phase [cm/s]",
+          "description": "",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "identificationInformation",
+    "sequenceName",
+    "measurementDate",
+    "projectName",
+    "deviceID",
+    "instrumentMethod",
+    "processingMethod",
+    "columnProperties",
+    "sampleProperties"
+  ]
+}
