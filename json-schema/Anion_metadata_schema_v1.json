@@ -177,7 +177,6 @@
       "required": [
         "eluentGeneratorSettings",
         "samplerSettings",
-        "uvVisDetector",
         "methodName",
         "pumpSettings",
         "injectionVolume",
@@ -429,8 +428,8 @@
               "maximum": 5
             }
           },
-          "type": "object",
-          "$id": "http://purl.obolibrary.org/obo/OBI_0000505"
+          "$id": "http://purl.obolibrary.org/obo/OBI_0000505",
+          "type": "object"
         },
         "cdDetectorSettings": {
           "title": "Conductivity detector settings",
