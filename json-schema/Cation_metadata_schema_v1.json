@@ -877,10 +877,6 @@
   },
   "required": [
     "identificationInformation",
-    "sequenceName",
-    "measurementDate",
-    "projectName",
-    "deviceID",
     "instrumentMethod",
     "processingMethod",
     "columnProperties",
