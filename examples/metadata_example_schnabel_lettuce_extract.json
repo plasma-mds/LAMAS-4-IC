@@ -1,0 +1,114 @@
+{
+  "dataCite": {
+    "identifierType": "DOI",
+    "creator": {
+      "givenName": "Uta",
+      "familyName": "Schnabel",
+      "nameIdentifier": "0000-0003-0691-3700",
+      "nameIdentifierScheme": "ORCID",
+      "affiliation": "Leibniz Institute for Plasma Science and Technology"
+    },
+    "titleType": "Main title",
+    "publicationYear": 2024,
+    "resourceType": "Dataset"
+  },
+  "identificationInformation": {
+    "sequenceName": "2023_04_19_lettuce_1stRep_day0",
+    "measurementDate": "20.04.2023",
+    "projectName": "SPLASH",
+    "deviceBrand": "ThermoFisher Scientific",
+    "deviceID": "ICS-6000"
+  },
+  "instrumentMethod": {
+    "methodName": "AS18 23 mM iso 15 mA sequential",
+    "runtime": 30,
+    "injectionVolume": 5,
+    "pumpSettings": {
+      "pumpMode": "isocratic",
+      "eluentFlowRate": 0.25,
+      "lowerPressureLimit": 200,
+      "upperPressureLimit": 3500,
+      "eluentChannels": {
+        "channelA": 100,
+        "channelB": 0,
+        "channelC": 0,
+        "channelD": 0
+      }
+    },
+    "eluentGeneratorSettings": {
+      "eluentCartridge": "KOH 500",
+      "eluentMode": "isocratic",
+      "eluentConcentration": 23
+    },
+    "samplerSettings": {
+      "samplerTemperature": 10,
+      "temperatureDeviation": 5
+    },
+    "cdDetectorSettings": {
+      "cd1Channel": false,
+      "cd1TotalChannel": true,
+      "cdDataCollectionRate": "1.0 Hz",
+      "cdAutozero": true
+    },
+    "suppressorSettings": {
+      "suppressorType": "ARDS 2mm",
+      "carbonateSuppression": 0,
+      "bicarbonateSuppression": 0,
+      "hydroxideSuppression": 23,
+      "tetraborateSuppression": 0,
+      "otherSuppression": 0,
+      "suppressorCurrent": 15
+    }
+  },
+  "processingMethod": {
+    "ProcessingStandardDetectionWindows": {
+      "voidRetentiontime": 3,
+      "voidWindow": 0.4,
+      "fluorideRetentiontime": 3.8,
+      "fluorideWindow": 0.4,
+      "chlorideRetentiontime": 5.4,
+      "chlorideWindow": 0.25,
+      "nitriteRetentiontime": 6.5,
+      "nitriteWindow": 0.3,
+      "carbonateRetentiontime": 7.7,
+      "carbonateWindow": 0.3,
+      "bromideRetentiontime": 8,
+      "bromideWindow": 0.25,
+      "sulfateRetentiontime": 9.25,
+      "sulfateWindow": 0.3,
+      "nitrateRetentiontime": 10.6,
+      "nitrateWindow": 0.45,
+      "phosphateRetentiontime": 23.8,
+      "phosphateWindow": 2.3
+    }
+  },
+  "columnProperties": {
+    "guardColumn": true,
+    "guardColumnName": "AG 18",
+    "guardColumnLot": 1812072,
+    "guardColumnPackingMaterial": "Ethylvinylbenzol/Divinylbenzol",
+    "guardColumnStationaryPhase": "Super Macroporous Resin",
+    "guardColumnLength": "50 mm",
+    "guardDiameter": 2,
+    "guardParticleSize": 13,
+    "separationColumnName": "AS 18",
+    "columnLot": 2209103,
+    "separationColumnPackingMaterial": "Ethylvinylbenzol/Divinylbenzol",
+    "separationColumnStationaryPhase": "Super Macroporous Resin",
+    "separationColumnLength": 250,
+    "separationColumnDiameter": 2,
+    "separationColumnParticleSize": 7.5,
+    "columnTemperature": 30
+  },
+  "sampleProperties": {
+    "sampleMatrix": "treated lettuce",
+    "coarseFilterMaterial": "Cellulose",
+    "fineFilterPoreSize": 0.2,
+    "fineFilterMaterial": "PES"
+  },
+  "qualityAssurance": {
+    "backgroundConductivityAtSequenceStart": 1.2,
+    "system_pressure_start": 2366.1,
+    "linearVelocity": 0.1267748
+  }
+}
