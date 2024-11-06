@@ -48,11 +48,6 @@
               "title": "Affiliation",
               "description": "The organizational or institutional affiliation of the creator.",
               "type": "string"
-            },
-            "affiliationIdentifier": {
-              "title": "Affiliation identifier",
-              "description": "Uniquely identifies the organizational affiliation of the creator.",
-              "type": "string"
             }
           },
           "type": "object"
