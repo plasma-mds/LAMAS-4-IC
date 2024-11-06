@@ -660,11 +660,11 @@
           ]
         },
         "guardColumnLength": {
-          "title": "Guard column length",
+          "title": "Guard column length [mm]",
           "description": "",
-          "type": "string",
+          "type": "number",
           "enum": [
-            "50 mm"
+            50
           ]
         },
         "guardDiameter": {
@@ -760,7 +760,7 @@
           "contentEncoding": "base64"
         },
         "sampleConductivity": {
-          "title": "Sample conductivity [\\mu S]",
+          "title": "Sample conductivity [\\mu S/cm]",
           "description": "",
           "$id": "http://purl.obolibrary.org/obo/NCIT_C134263",
           "type": "string",
@@ -805,7 +805,7 @@
           ]
         },
         "coarseFilterPoreSize": {
-          "title": "Coarse filter pore size [mm]",
+          "title": "Coarse filter pore size [\\mu m]",
           "description": "",
           "type": "number"
         },
@@ -852,7 +852,7 @@
           "contentEncoding": "base64"
         },
         "backgroundConductivityAtSequenceStart": {
-          "title": "Background conductivity at sequence start [\\mu S]",
+          "title": "Background conductivity at sequence start [\\mu S/cm]",
           "description": "For a stable measurement background should be less than 1 µS.",
           "type": "number"
         },
