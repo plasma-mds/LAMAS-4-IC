@@ -88,7 +88,7 @@
     "guardColumnLot": 1812072,
     "guardColumnPackingMaterial": "Ethylvinylbenzol/Divinylbenzol",
     "guardColumnStationaryPhase": "Super Macroporous Resin",
-    "guardColumnLength": "50 mm",
+    "guardColumnLength": 50,
     "guardDiameter": 2,
     "guardParticleSize": 13,
     "separationColumnName": "AS 18",
