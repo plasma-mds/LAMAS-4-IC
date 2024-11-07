@@ -101,10 +101,11 @@
     "columnTemperature": 30
   },
   "sampleProperties": {
-    "sampleMatrix": "treated lettuce",
+    "sampleMatrix": "lettuce extract",
+    "coarseFilterPoreSize": 4,
     "coarseFilterMaterial": "Cellulose",
     "fineFilterPoreSize": 0.2,
-    "fineFilterMaterial": "PES"
+    "fineFilterMaterial": "Cellulosenitrat"
   },
   "qualityAssurance": {
     "backgroundConductivityAtSequenceStart": 1.2,
