@@ -1,7 +1,8 @@
-
 ## Metadata example 1 - Balazinski aquaculture
 File: metadata_example_balazinski_aquaculture.json
+
 Source available at: [Link](https://github.com/plasma-mds/LAMAS-4-IC/blob/main/examples/metadata_example_balazinski_aquaculture.json)
+
 Legend: NA – not applicable/ not available
 
 
