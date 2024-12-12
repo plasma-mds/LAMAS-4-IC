@@ -1,7 +1,9 @@
 ## Metadata example 2 - Schnabel lettuce extract
 
 File: metadata_example_schnabel_lettuce_extract.json
+
 Source available at: [Link](https://github.com/plasma-mds/LAMAS-4-IC/blob/main/examples/metadata_example_schnabel_lettuce_extract.json)
+
 Legend: NA – not applicable/ not available
 
 | Key    | Value |
