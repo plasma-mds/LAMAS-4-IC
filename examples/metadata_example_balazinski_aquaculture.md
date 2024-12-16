@@ -105,7 +105,7 @@ Legend: NA – not applicable/ not available
 | Dilution factors | NA |
 | Sample storage time [h] | NA |
 | Sample storage temperature [°C] | NA | 
-| Sample matrix | aquaculture water |
+| Sample matrix | Aquaculture water |
 | Coarse filter pore size [µm] | NA | 
 | Coarse filter material | None |
 | Fine filter pore size [µm] | 0.2 |  
