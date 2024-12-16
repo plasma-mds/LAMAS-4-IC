@@ -1,17 +1,4 @@
 {
-  "dataCite": {
-    "identifierType": "DOI",
-    "creator": {
-      "givenName": "Uta",
-      "familyName": "Schnabel",
-      "nameIdentifier": "0000-0003-0691-3700",
-      "nameIdentifierScheme": "ORCID",
-      "affiliation": "Leibniz Institute for Plasma Science and Technology"
-    },
-    "titleType": "Main title",
-    "publicationYear": 2024,
-    "resourceType": "Dataset"
-  },
   "identificationInformation": {
     "sequenceName": "2023_04_19_lettuce_1stRep_day0",
     "measurementDate": "20.04.2023",
@@ -101,7 +88,7 @@
     "columnTemperature": 30
   },
   "sampleProperties": {
-    "sampleMatrix": "lettuce extract",
+    "sampleMatrix": "Lettuce extract",
     "coarseFilterPoreSize": 4,
     "coarseFilterMaterial": "Cellulose",
     "fineFilterPoreSize": 0.2,
