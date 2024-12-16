@@ -330,7 +330,7 @@
               "type": "string",
               "enum": [
                 "MSA 500",
-                ""
+                "None"
               ]
             },
             "eluentMode": {
@@ -492,10 +492,10 @@
           "description": "",
           "required": [
             "suppressorCurrent",
-            "suppressorType",
             "sulfuricAcidSuppression",
             "otherSuppression",
-            "methanesulfonicAcidSuppression"
+            "methanesulfonicAcidSuppression",
+            "suppressorType"
           ],
           "properties": {
             "suppressorType": {
@@ -506,7 +506,8 @@
                 "CRDS 2mm",
                 "CRDS 4mm",
                 "CERS 2mm",
-                "CERS 4mm"
+                "CERS 4mm",
+                "None"
               ]
             },
             "sulfuricAcidSuppression": {
@@ -653,7 +654,8 @@
           "description": "",
           "type": "string",
           "enum": [
-            "CG 16"
+            "CG 16",
+            "None"
           ]
         },
         "guardColumnLot": {
@@ -667,7 +669,7 @@
           "type": "string",
           "enum": [
             "Ethylvinylbenzol/Divinylbenzol",
-            "none"
+            "None"
           ]
         },
         "guardColumnStationaryPhase": {
@@ -676,7 +678,7 @@
           "type": "string",
           "enum": [
             "Super Macroporous Resin",
-            ""
+            "None"
           ]
         },
         "guardColumnLength": {
@@ -707,7 +709,8 @@
           "description": "",
           "type": "string",
           "enum": [
-            "CS 16"
+            "CS 16",
+            "None"
           ]
         },
         "columnLot": {
@@ -722,7 +725,7 @@
           "type": "string",
           "enum": [
             "Ethylvinylbenzol/Divinylbenzol",
-            "none"
+            "None"
           ]
         },
         "separationColumnStationaryPhase": {
@@ -731,7 +734,7 @@
           "type": "string",
           "enum": [
             "Super Macroporous Resin",
-            ""
+            "None"
           ]
         },
         "separationColumnLength": {
@@ -816,12 +819,12 @@
           "type": "string",
           "enum": [
             "PTW",
-            "treated lettuce",
-            "aquaculture water",
-            "model aquaculture water",
-            "wash water",
-            "waste water",
-            "lettuce extract"
+            "Treated lettuce",
+            "Aquaculture water",
+            "Model aquaculture water",
+            "Wash water",
+            "Waste water",
+            "Lettuce extract"
           ]
         },
         "coarseFilterPoreSize": {
@@ -835,7 +838,7 @@
           "type": "string",
           "enum": [
             "Cellulose",
-            "none"
+            "None"
           ]
         },
         "fineFilterPoreSize": {
@@ -851,7 +854,7 @@
             "Cellulosenitrat",
             "Nylon",
             "PES",
-            "none"
+            "None"
           ]
         }
       },
