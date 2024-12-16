@@ -1,17 +1,4 @@
 {
-  "dataCite": {
-    "identifierType": "DOI",
-    "creator": {
-      "givenName": "Martina",
-      "familyName": "Balazinski",
-      "nameIdentifier": "0000-0001-8862-3816",
-      "nameIdentifierScheme": "ORCID",
-      "affiliation": "Leibniz Institute for Plasma Science and Technology"
-    },
-    "titleType": "Main title",
-    "publicationYear": 2024,
-    "resourceType": "Dataset"
-  },
   "identificationInformation": {
     "sequenceName": "2022-02-22_Wasser_Born",
     "measurementDate": "23.02.2022",
@@ -101,7 +88,7 @@
     "columnTemperature": 30
   },
   "sampleProperties": {
-    "sampleMatrix": "aquaculture water",
+    "sampleMatrix": "Aquaculture water",
     "coarseFilterMaterial": "Cellulose",
     "fineFilterPoreSize": 0.2,
     "fineFilterMaterial": "PES"
