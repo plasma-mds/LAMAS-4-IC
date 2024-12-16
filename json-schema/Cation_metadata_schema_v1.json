@@ -24,6 +24,11 @@
           "title": "Creator",
           "description": "The main researchers involved in producing the data, or the authors of the publication, in priority order. To supply multiple creators, repeat this property.",
           "properties": {
+            "creatorName": {
+              "title": "Creator full name",
+              "description": "The full name of the creator.",
+              "type": "string"
+            },
             "givenName": {
               "title": "Given name",
               "description": "The personal or first name of the creator",
@@ -48,6 +53,16 @@
               "title": "Affiliation",
               "description": "The organizational or institutional affiliation of the creator.",
               "type": "string"
+            },
+            "affiliationIdentifier": {
+              "title": "Affiliation identifier",
+              "description": "Uniquely identifies the organizational affiliation of the creator.",
+              "type": "string"
+            },
+            "affiliationIdentifierScheme": {
+              "type": "string",
+              "title": "Affiliation identifier scheme",
+              "description": "The name of the affiliation identifier scheme. Examples: ROR, GRID"
             }
           },
           "type": "object"
@@ -81,8 +96,13 @@
           "minimum": 0
         },
         "resourceType": {
+          "type": "string",
           "title": "Resource type",
-          "description": "Controlled list of possible types according to DataCity 4.4",
+          "description": "A description of the resource"
+        },
+        "resourceTypeGeneral": {
+          "title": "Resource type general",
+          "description": "The general type of a resource",
           "type": "string",
           "enum": [
             "Audiovisual",
