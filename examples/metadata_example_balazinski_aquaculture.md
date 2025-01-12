@@ -6,7 +6,7 @@ Source available at: [Link](https://github.com/plasma-mds/LAMAS-4-IC/blob/main/e
 Legend: NA – not applicable/ not available
 
 
-| Key    | Value |
+| Field title | Value |
 | -------- | ------- |
 | **Identification information** ||
 | Sequence name | 2022-02-22_Wasser_Born |
