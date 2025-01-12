@@ -6,7 +6,7 @@ Source available at: [Link](https://github.com/plasma-mds/LAMAS-4-IC/blob/main/e
 
 Legend: NA – not applicable/ not available
 
-| Key    | Value |
+| Field title | Value |
 | -------- | ------- |
 | **Identification information** ||
 | Sequence name | 2023_04_19_lettuce_1stRep_day0 |
