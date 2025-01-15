@@ -5,134 +5,155 @@
   "properties": {
     "dataCite": {
       "title": "Data citation information",
-      "description": "Mandatory information for accurate and consistent identification of a resource for citation and retrieval purposes. According to DataCite V 4.4",
+      "description": "Mandatory information for accurate and consistent identification of a resource for citation and retrieval purposes. According to DataCite V 4.6",
       "properties": {
-        "identifier": {
+        "identifierObject": {
+          "type": "object",
           "title": "Identifier",
-          "description": "The Identifier is a unique string that identifies a resource. For software, determine whether the identifier is for a specific version of a piece of software, (per the Force11 Software Citation Principles11), or for all versions. Allowed is the DOI (Digital Object Identifier) registered by a DataCite member.",
-          "type": "string"
-        },
-        "identifierType": {
-          "type": "string",
-          "title": "Identifier type",
-          "description": "The type of Identifier. ",
-          "enum": [
-            "DOI"
-          ]
+          "description": "",
+          "properties": {
+            "identifier": {
+              "type": "string",
+              "title": "Identifier",
+              "description": "The Identifier is a unique string that identifies a resource."
+            },
+            "identifierType": {
+              "type": "string",
+              "title": "identifierType",
+              "description": "The type of Identifier.",
+              "enum": [
+                "DOI"
+              ]
+            }
+          }
         },
         "creator": {
           "title": "Creator",
           "description": "The main researchers involved in producing the data, or the authors of the publication, in priority order. To supply multiple creators, repeat this property.",
-          "properties": {
-            "creatorName": {
-              "title": "Creator full name",
-              "description": "The full name of the creator.",
-              "type": "string"
-            },
-            "givenName": {
-              "title": "Given name",
-              "description": "The personal or first name of the creator",
-              "type": "string"
-            },
-            "familyName": {
-              "title": "Family name",
-              "description": "The surname or last name of the creator",
-              "type": "string"
-            },
-            "nameIdentifier": {
-              "title": "Name identifier",
-              "description": "Uniquely identifies an individual or legal entity, according to various schemes.",
-              "type": "string"
-            },
-            "nameIdentifierScheme": {
-              "type": "string",
-              "title": "Name identifier scheme",
-              "description": "The name of the name\nidentifier scheme. For example ORCID, ISNI, ROR or GRID"
-            },
-            "affiliation": {
-              "title": "Affiliation",
-              "description": "The organizational or institutional affiliation of the creator.",
-              "type": "string"
-            },
-            "affiliationIdentifier": {
-              "title": "Affiliation identifier",
-              "description": "Uniquely identifies the organizational affiliation of the creator.",
-              "type": "string"
-            },
-            "affiliationIdentifierScheme": {
-              "type": "string",
-              "title": "Affiliation identifier scheme",
-              "description": "The name of the affiliation identifier scheme. Examples: ROR, GRID"
+          "items": {
+            "type": "object",
+            "properties": {
+              "creatorName": {
+                "title": "Creator full name",
+                "description": "The full name of the creator.",
+                "type": "string"
+              },
+              "nameType": {
+                "type": "string",
+                "title": "Name type",
+                "description": "The type of name.",
+                "enum": [
+                  "Organizational",
+                  "Personal"
+                ]
+              },
+              "givenName": {
+                "title": "Given name",
+                "description": "The personal or first name of the creator",
+                "type": "string"
+              },
+              "familyName": {
+                "title": "Family name",
+                "description": "The surname or last name of the creator",
+                "type": "string"
+              }
             }
           },
-          "type": "object"
+          "type": "array"
         },
         "title": {
-          "title": "Publication title",
-          "description": "A name or title by which a resource is known. May be the title of a dataset or the name of a piece of software",
-          "type": "string"
-        },
-        "titleType": {
-          "title": "Publication title type",
-          "description": "The type of Title (other than the Main Title)",
-          "type": "string",
-          "enum": [
-            "Main title",
-            "Alternative title",
-            "Subtitle",
-            "Translated title",
-            "Other"
-          ]
+          "title": "Title",
+          "description": "",
+          "items": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string",
+                "title": "Title",
+                "description": "A name or title by which a resource is known. May be the title of a dataset or the name of a piece of software or an instrument."
+              },
+              "titleType": {
+                "type": "string",
+                "title": "Title type",
+                "description": "The type of Title (other than the Main Title).",
+                "enum": [
+                  "",
+                  "AlternativeTitle",
+                  "Subtitle",
+                  "TranslatedTitle",
+                  "Other"
+                ]
+              }
+            }
+          },
+          "type": "array"
         },
         "publisher": {
           "title": "Publisher",
-          "description": "The name of the entity that holds, archives, publishes prints, distributes, releases, issues, or produces the resource. This property will be used to formulate the citation, so consider the prominence of the role. For software, use Publisher for the code repository. If there is an entity other than a code repository, that \"holds, archives, publishes, prints, distributes, releases, issues, or produces\" the code, use the property Contributor/contributorType/\nhostingInstitution for the code repository.",
-          "type": "string"
+          "description": "",
+          "type": "object",
+          "properties": {
+            "publisher": {
+              "type": "string",
+              "title": "Publisher",
+              "description": "The name of the entity that holds, archives, publishes, prints, distributes, releases, issues, or produces the resource. This property will be used to formulate the citation, so consider the prominence of the role."
+            },
+            "publisherIdentifier": {
+              "type": "string",
+              "title": "Publisher identifier",
+              "description": "Uniquely identifies the publisher, according to various schemes."
+            },
+            "publisherIdentifierScheme": {
+              "type": "string",
+              "title": "Publisher identifier scheme",
+              "description": "The name of the publisher identifier scheme.",
+              "enum": [
+                "ROR",
+                "re3data",
+                "VIAF",
+                "Wikidata",
+                "Crossref Funder ID",
+                "ISNI",
+                "OpenDOAR",
+                "FAIRsharing",
+                "ISSN"
+              ]
+            },
+            "schemeURI": {
+              "type": "string",
+              "title": "Scheme URI",
+              "description": "The URI of the publisher identifier scheme."
+            }
+          }
         },
         "publicationYear": {
           "title": "Publication year",
-          "description": "The year when the data was or will be made publicly available. In the case of resources such as software or dynamic data where there may be multiple releases in one year, include the Date/dateType/dateInformation property and sub-properties to provide more information about the publication or release date details.",
+          "description": "The year when the data was or will be made publicly available. In the case of resources such as software or dynamic data where there may be multiple releases in one year, include the Date property and sub-properties (dateType/dateInformation) to provide more information about the publication or release date details.",
           "type": "number",
           "minimum": 0
         },
         "resourceType": {
-          "type": "string",
           "title": "Resource type",
-          "description": "A description of the resource"
-        },
-        "resourceTypeGeneral": {
-          "title": "Resource type general",
-          "description": "The general type of a resource",
-          "type": "string",
-          "enum": [
-            "Audiovisual",
-            "Book",
-            "Book chapter",
-            "Collection",
-            "Computational notebook",
-            "Conference paper",
-            "Conference proceeding",
-            "Data paper",
-            "Dataset",
-            "Dissertation",
-            "Event",
-            "Image",
-            "Interactive Resource",
-            "Journal",
-            "Journal article",
-            "Model",
-            "Output management plan",
-            "Peer review",
-            "Physical object",
-            "Preprint",
-            "Report",
-            "Service Software",
-            "Sound",
-            "Standard",
-            "Text",
-            "Workflow",
-            "Other"
-          ]
+          "description": "",
+          "type": "object",
+          "properties": {
+            "resourceType": {
+              "type": "string",
+              "title": "Resource type",
+              "description": "A description of the resource."
+            },
+            "resourceTypeGeneral": {
+              "title": "Resource type general",
+              "description": "The general type of a resource.",
+              "type": "string",
+              "enum": [
+                "Dataset",
+                "Report",
+                "Standard"
+              ]
+            }
+          }
         }
       },
       "type": "object"
