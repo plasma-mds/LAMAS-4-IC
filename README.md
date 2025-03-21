@@ -1,6 +1,6 @@
 [![DOI](https://zenodo.org/badge/883316101.svg)](https://doi.org/10.5281/zenodo.15055616)
 # LAMAS 4 IC
-This repository contains the schema and example files for the laboratory approved metadata acquisition schema for ion chromatography (LAMAS 4 IC).
+This repository contains the schema and example files for the laboratory approved metadata acquisition schemas for ion chromatography (LAMAS 4 IC).
 
 ## Aim
 
