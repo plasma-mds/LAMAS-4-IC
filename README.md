@@ -8,7 +8,7 @@ LAMAS 4 IC was developed to support the findability and reusability of research 
 
 ## Publications
 
-* Documentation of the initial release version: ToBeAddedLater
+* Documentation of the initial release version v.0.5 open access publication in [Journal of Chromatography B Volume 1256](https://doi.org/10.1016/j.jchromb.2025.124556)
 ## License
 
 LAMAS 4 IC is distributed under a [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
