@@ -162,17 +162,18 @@
       "title": "Identification information",
       "description": "",
       "required": [
-        "sequenceName",
         "measurementDate",
         "projectName",
         "deviceBrand",
+        "sequenceName",
         "deviceID"
       ],
       "properties": {
         "sequenceName": {
           "title": "Sequence name",
           "description": "Name of the measured sequence.",
-          "type": "string"
+          "type": "string",
+          "$id": "http://purl.obolibrary.org/obo/MS_4000089"
         },
         "measurementDate": {
           "title": "Date of measurement begin",
@@ -202,7 +203,8 @@
         "deviceID": {
           "title": "Device ID",
           "description": "Which device was used",
-          "type": "string"
+          "type": "string",
+          "$id": "https://plasma-mds.org/ontology/plasma-o/PLSMO_C0003"
         }
       },
       "type": "object"
@@ -211,23 +213,25 @@
       "title": "Instrument method",
       "description": "Method that defines the device parameter.",
       "required": [
+        "runtime",
+        "injectionVolume",
+        "pumpSettings",
         "eluentGeneratorSettings",
         "samplerSettings",
-        "methodName",
-        "pumpSettings",
-        "injectionVolume",
-        "runtime"
+        "methodName"
       ],
       "properties": {
         "methodName": {
           "title": "Instrument method name",
           "description": "",
-          "type": "string"
+          "type": "string",
+          "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_A0001"
         },
         "runtime": {
           "title": "Runtime [min]",
           "description": "Defines the length of each measurement. Ranges from 3 to 100000 minutes.",
           "type": "number",
+          "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0077",
           "minimum": 3,
           "maximum": 100000
         },
@@ -244,16 +248,17 @@
           "description": "",
           "required": [
             "pumpMode",
-            "eluentChannels",
-            "upperPressureLimit",
+            "eluentFlowRate",
             "lowerPressureLimit",
-            "eluentFlowRate"
+            "upperPressureLimit",
+            "eluentChannels"
           ],
           "properties": {
             "pumpMode": {
               "title": "Pump mode",
               "description": "isocratic: eluent generated from one solvent,\n\ngradient: eluent generated from a mixture of up to 4 solvents",
               "type": "string",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0009",
               "enum": [
                 "isocratic",
                 "gradient"
@@ -262,7 +267,7 @@
             "eluentFlowRate": {
               "title": "Eluent flow rate [ml/min]",
               "description": "",
-              "$id": "http://purl.allotrope.org/ontologies/result#AFR_0001270",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0079",
               "type": "number",
               "minimum": 0,
               "maximum": 3
@@ -270,7 +275,7 @@
             "lowerPressureLimit": {
               "title": "Lower pressure limit [psi]",
               "description": "Lower boundary for the system pressure, ranges from 200 to 4999 psi.",
-              "$id": "http://biomodels.net/SBO/SBO_0000279",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0080",
               "type": "number",
               "minimum": 200,
               "maximum": 4999
@@ -279,6 +284,7 @@
               "title": "Upper pressure limit [psi]",
               "description": "Upper boundary for the system pressure, ranges from 201 to 5000 psi. Must be higher than the lower pressure limit!",
               "type": "number",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0082",
               "minimum": 201,
               "maximum": 5000
             },
@@ -334,20 +340,27 @@
                   "maximum": 100
                 }
               },
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0057",
               "type": "object"
             }
           },
+          "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0007",
           "type": "object"
         },
         "eluentGeneratorSettings": {
-          "type": "object",
           "title": "Eluent generator settings",
           "description": "",
+          "required": [
+            "eluentCartridge",
+            "eluentMode",
+            "eluentConcentration"
+          ],
           "properties": {
             "eluentCartridge": {
               "title": "Eluent cartridge",
               "description": "",
               "type": "string",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0005",
               "enum": [
                 "KOH 500",
                 "None"
@@ -357,6 +370,7 @@
               "title": "Eluent mode",
               "description": "isocratic: one fix concentration for whole measurement,\ngradient: concentration shifts over defined time frame(s)",
               "type": "string",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0006",
               "enum": [
                 "isocratic",
                 "gradient"
@@ -365,7 +379,7 @@
             "eluentConcentration": {
               "title": "Eluent concentration [mM]",
               "description": "",
-              "$id": "http://edamontology.org/data_2140",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0058",
               "type": "number",
               "minimum": 0,
               "maximum": 100
@@ -384,21 +398,21 @@
               "type": "object"
             }
           },
-          "required": [
-            "eluentMode",
-            "eluentConcentration",
-            "eluentCartridge"
-          ]
+          "type": "object",
+          "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0004"
         },
         "samplerSettings": {
-          "type": "object",
           "title": "Sampler settings",
           "description": "",
+          "required": [
+            "samplerTemperature",
+            "temperatureDeviation"
+          ],
           "properties": {
             "samplerTemperature": {
               "title": "Sampler temperature [°C]",
               "description": "Temperature for sample storage in the sampler.",
-              "$id": "http://nmrML.org/nmrCV#NMR:1400024",
+              "$id": "http://purl.allotrope.org/ontologies/result#AFR_0001538",
               "type": "number",
               "minimum": 4,
               "maximum": 60
@@ -407,14 +421,13 @@
               "title": "Temperature deviation [°C]",
               "description": "Accepted deviation from set sampler temperature.",
               "type": "number",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0083",
               "minimum": 0,
               "maximum": 10
             }
           },
-          "required": [
-            "temperatureDeviation",
-            "samplerTemperature"
-          ]
+          "type": "object",
+          "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0002"
         },
         "uvVisDetector": {
           "title": "UV/VIS detector",
@@ -423,8 +436,8 @@
             "wavelength1": {
               "title": "Wavelength channel 1 [nm]",
               "description": "Ranges from 190 to 900 nm.",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0075",
               "type": "number",
-              "$id": "http://purl.obolibrary.org/obo/NCIT_C48158",
               "minimum": 190,
               "maximum": 900
             },
@@ -452,6 +465,7 @@
             "uvVisDataCollectionRate": {
               "title": "UV/VIS data collection rate [Hz]",
               "description": "Ranges from 0.2 t o100 Hz.",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0074",
               "type": "number",
               "minimum": 0,
               "maximum": 100
@@ -460,6 +474,7 @@
               "title": "Time constant [s]",
               "description": "Ranges from 0 to 4.55s.",
               "type": "number",
+              "$id": "http://www.ontology-of-units-of-measure.org/resource/om-2/TimeConstant",
               "minimum": 0,
               "maximum": 5
             }
@@ -487,6 +502,7 @@
               "title": "CD data collection rate [Hz]",
               "description": "",
               "type": "string",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0052",
               "enum": [
                 "1.0 Hz",
                 "2.0 Hz",
@@ -504,26 +520,27 @@
               "default": true
             }
           },
-          "type": "object",
-          "$id": "http://purl.obolibrary.org/obo/OBI_0000565"
+          "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0003",
+          "type": "object"
         },
         "suppressorSettings": {
           "title": "Suppressor settings",
           "description": "",
           "required": [
+            "suppressorType",
             "carbonateSuppression",
             "bicarbonateSuppression",
             "hydroxideSuppression",
-            "suppressorCurrent",
-            "otherSuppression",
             "tetraborateSuppression",
-            "suppressorType"
+            "otherSuppression",
+            "suppressorCurrent"
           ],
           "properties": {
             "suppressorType": {
               "title": "Suppressor type",
               "description": "",
               "type": "string",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0011",
               "enum": [
                 "ARDS 2mm",
                 "AERS 2mm",
@@ -532,52 +549,58 @@
             },
             "carbonateSuppression": {
               "title": "Carbonate suppression [mM]",
-              "description": "",
+              "description": "Provide molarity for total suppresor current calculation.",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0050",
               "type": "number",
               "minimum": 0,
               "maximum": 25
             },
             "bicarbonateSuppression": {
               "title": "Bicarbonate suppression [mM]",
-              "description": "",
+              "description": "Provide molarity for total suppresor current calculation.",
               "type": "number",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0045",
               "maximum": 25
             },
             "hydroxideSuppression": {
               "title": "Hydroxide suppression [mM]",
-              "description": "",
+              "description": "Provide molarity for total suppresor current calculation.",
               "type": "number",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0061",
               "minimum": 0,
               "maximum": 200
             },
             "tetraborateSuppression": {
               "title": "Tetraborate suppression [mM]",
-              "description": "",
+              "description": "Provide molarity for total suppresor current calculation.",
               "type": "number",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0071",
               "minimum": 0,
               "maximum": 75
             },
             "otherSuppression": {
               "title": "Other suppression [mM]",
-              "description": "",
+              "description": "Provide total molarity for total suppresor current calculation.",
               "type": "number",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0066",
               "minimum": 0,
               "maximum": 100
             },
             "suppressorCurrent": {
               "title": "Suppressor current [mA]",
-              "description": "",
-              "$id": "http://www.ebi.ac.uk/efo/EFO_0000388",
+              "description": "Sometimes automatically calculated from the software by providing molarities of the eluent.\nCurrent (mA) = Flow rate (mL/min) × [Eluent concentration (mN)] × Suppressor specific factor",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0078",
               "type": "number",
               "minimum": 0,
               "maximum": 150
             }
           },
-          "$id": "http://purl.obolibrary.org/obo/NCIT_C50198",
+          "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0010",
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0001"
     },
     "processingMethod": {
       "title": "Processing method",
@@ -588,8 +611,9 @@
           "description": "",
           "properties": {
             "voidRetentiontime": {
-              "title": "Void retentiontime [min]",
+              "title": "Void retention time [min]",
               "description": "",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0072",
               "type": "number",
               "minimum": 0
             },
@@ -597,12 +621,13 @@
               "title": "Void window [min]",
               "description": "Defines the allowed difference to the defined retention time.",
               "type": "number",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0073",
               "minimum": 0
             },
             "fluorideRetentiontime": {
-              "title": "Fluoride retentiontime [min]",
+              "title": "Fluoride retention time [min]",
               "description": "",
-              "$id": "http://purl.allotrope.org/ontologies/result#AFR_0001089",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0059",
               "type": "number",
               "minimum": 0,
               "maximum": 100000
@@ -610,11 +635,13 @@
             "fluorideWindow": {
               "title": "Fluoride window [min]",
               "description": "Defines the allowed difference to the defined retention time.",
-              "type": "number"
+              "type": "number",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0060"
             },
             "chlorideRetentiontime": {
-              "title": "Chloride retentiontime [min]",
+              "title": "Chloride retention time [min]",
               "description": "",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0053",
               "type": "number",
               "minimum": 0
             },
@@ -622,82 +649,96 @@
               "title": "Chloride window [min]",
               "description": "Defines the allowed difference to the defined retention time.",
               "type": "number",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0054",
               "minimum": 0
             },
             "nitriteRetentiontime": {
-              "title": "Nitrite retentiontime [min]",
+              "title": "Nitrite retention time [min]",
               "description": "",
               "type": "number",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0064",
               "minimum": 0
             },
             "nitriteWindow": {
               "title": "Nitrite window [min]",
               "description": "Defines the allowed difference to the defined retention time.",
               "type": "number",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0065",
               "minimum": 0
             },
             "carbonateRetentiontime": {
-              "title": "Carbonate retentiontime [min]",
+              "title": "Carbonate retention time [min]",
               "description": "",
               "type": "number",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0049",
               "minimum": 0
             },
             "carbonateWindow": {
               "title": "Carbonate window [min]",
               "description": "Defines the allowed difference to the defined retention time.",
               "type": "number",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0051",
               "minimum": 0
             },
             "bromideRetentiontime": {
-              "title": "Bromide retentiontime [min]",
+              "title": "Bromide retention time [min]",
               "description": "",
               "type": "number",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0046",
               "minimum": 0
             },
             "bromideWindow": {
               "title": "Bromide window [min]",
               "description": "Defines the allowed difference to the defined retention time.",
               "type": "number",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0047",
               "minimum": 0
             },
             "sulfateRetentiontime": {
-              "title": "Sulfate retentiontime [min]",
+              "title": "Sulfate retention time [min]",
               "description": "",
               "type": "number",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0069",
               "minimum": 0
             },
             "sulfateWindow": {
               "title": "Sulfate window [min]",
               "description": "Defines the allowed difference to the defined retention time.",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0070",
               "type": "number"
             },
             "nitrateRetentiontime": {
-              "title": "Nitrate retentiontime [min]",
+              "title": "Nitrate retention time [min]",
               "description": "",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0062",
               "type": "number",
               "minimum": 0
             },
             "nitrateWindow": {
               "title": "Nitrate window [min]",
               "description": "Defines the allowed difference to the defined retention time.",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0063",
               "type": "number",
               "minimum": 0
             },
             "phosphateRetentiontime": {
-              "title": "Phosphate retentiontime [min]",
+              "title": "Phosphate retention time [min]",
               "description": "",
-              "type": "number"
+              "type": "number",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0067"
             },
             "phosphateWindow": {
               "title": "Phosphate window [min]",
               "description": "Defines the allowed difference to the defined retention time.",
-              "type": "number"
+              "type": "number",
+              "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0068"
             }
           },
           "type": "object"
         }
       },
-      "type": "object"
+      "type": "object",
+      "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0013"
     },
     "columnProperties": {
       "title": "Column properties",
@@ -705,20 +746,21 @@
       "required": [
         "columnLot",
         "separationColumnLength",
-        "separationColumnDiameter",
         "columnTemperature",
+        "separationColumnDiameter",
         "separationColumnName"
       ],
       "properties": {
         "guardColumn": {
           "title": "Guard column",
           "description": "",
-          "$id": "http://purl.allotrope.org/ontologies/equipment#AFE_0000430",
+          "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0015",
           "type": "boolean"
         },
         "guardColumnName": {
           "title": "Guard column name",
           "description": "",
+          "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_A0002",
           "type": "string",
           "enum": [
             "AG 18",
@@ -733,6 +775,7 @@
         "guardColumnPackingMaterial": {
           "title": "Guard column packing material",
           "description": "Material used to pack the guard column.",
+          "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0091",
           "type": "string",
           "enum": [
             "Ethylvinylbenzol/Divinylbenzol",
@@ -743,6 +786,7 @@
           "title": "Guard column stationary phase",
           "description": "",
           "type": "string",
+          "$id": "http://purl.allotrope.org/ontologies/role#AFRL_0000032",
           "enum": [
             "Super Macroporous Resin",
             "None"
@@ -752,6 +796,7 @@
           "title": "Guard column length [mm]",
           "description": "",
           "type": "number",
+          "$id": "http://purl.allotrope.org/ontologies/result#AFR_0002029",
           "enum": [
             50
           ]
@@ -759,6 +804,7 @@
         "guardDiameter": {
           "title": "Guard column diameter [mm]",
           "description": "",
+          "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0089",
           "type": "number",
           "enum": [
             2,
@@ -769,12 +815,14 @@
           "title": "Guard column particle size [\\mu m]",
           "description": "",
           "type": "number",
+          "$id": "http://purl.allotrope.org/ontologies/result#AFR_0002561",
           "minimum": 0
         },
         "separationColumnName": {
           "title": "Separation column name",
           "description": "",
           "type": "string",
+          "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_A0003",
           "enum": [
             "AS 18",
             "None"
@@ -790,6 +838,7 @@
           "title": "Separation column packing material",
           "description": "",
           "type": "string",
+          "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0090",
           "enum": [
             "Ethylvinylbenzol/Divinylbenzol",
             "None"
@@ -816,7 +865,7 @@
         "separationColumnDiameter": {
           "title": "Separation column diameter [mm]",
           "description": "",
-          "$id": "http://purl.allotrope.org/ontologies/quality#AFQ_0000016",
+          "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0088",
           "type": "number",
           "default": 2,
           "enum": [
@@ -835,7 +884,7 @@
           "type": "number"
         }
       },
-      "$id": "http://purl.allotrope.org/ontologies/equipment#AFE_0000217",
+      "$id": "https://plasma-mds.org/ontology/IC_Ontology/IC_C0014",
       "type": "object"
     },
     "sampleProperties": {
@@ -962,9 +1011,9 @@
   },
   "required": [
     "identificationInformation",
+    "sampleProperties",
     "instrumentMethod",
     "processingMethod",
-    "columnProperties",
-    "sampleProperties"
+    "columnProperties"
   ]
 }
